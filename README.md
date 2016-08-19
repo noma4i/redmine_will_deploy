@@ -28,6 +28,8 @@ Tickets will gain special filterable field `Deploy?` to group by and have track 
 ### Custom field to rule em all!
 ![Plugin](screenshots/custom_field.png?raw=true)
 
+## Compatibility
+  - Tested with Redmine 2.5.x - 3.1.x
 
 ## Author
 
