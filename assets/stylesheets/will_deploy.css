@@ -1,0 +1,6 @@
+.deploy_icon-vote-yes{
+  background-image: url(../images/true.png);
+}
+.deploy_icon-vote-no{
+  background-image: url(../images/false.png);
+}

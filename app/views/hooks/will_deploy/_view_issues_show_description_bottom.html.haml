@@ -1,0 +1,31 @@
+%hr
+- if @issue.project.enabled_module_names.include?('will_deploy')
+  .contextual
+    [
+    = link_to 'Agree to Deploy', will_deploy_perform_acceptance_path(id: @issue, vote: true)
+    |
+    = link_to 'Should not Deploy', will_deploy_perform_acceptance_path(id: @issue)
+    |
+    = link_to 'Revoke', will_deploy_revoke_acceptance_path(id: @issue)
+    ]
+  %p
+    %strong Deploy Acceptance
+
+  %blockquote
+    %ul{:style => "list-style:none;"}
+      - if @issue.deploy_votes.any?
+        - @issue.deploy_votes.each do |vote|
+          %li
+            - if vote.agreed?
+              = image_tag 'true.png'
+            - else
+              = image_tag 'false.png'
+            %b
+              = vote.user.name
+            marked as
+            - if vote.agreed?
+              %i{:id => vote.id, :style => "border-bottom: 1px dashed #999; color: green;"}
+                Positive
+            - else
+              %i{:id => vote.id, :style => "border-bottom: 1px dashed #999; color: red"}
+                Negative
